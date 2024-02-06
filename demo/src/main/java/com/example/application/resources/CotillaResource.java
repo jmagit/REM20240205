@@ -36,10 +36,11 @@ public class CotillaResource {
 		private String nombre;
 		private String apellidos;
 	}
+	record Punto(int x, int y) {}
 	
 	@GetMapping(path = "/dto/{id}")
 	public MiDTO conDTO(@PathVariable int id) { 
-	    
+	    var p = new Punto(10, 20);
 	    return new MiDTO(id, "Pepito", "Grillo");
 	}
 
