@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -33,6 +35,7 @@ public class CotillaResource {
 	@Data @AllArgsConstructor @NoArgsConstructor
 	class MiDTO {
 		private int id;
+		@JsonProperty("name")
 		private String nombre;
 		private String apellidos;
 	}
