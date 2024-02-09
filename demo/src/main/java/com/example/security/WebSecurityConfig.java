@@ -48,7 +48,7 @@ public class WebSecurityConfig {
                     .requestMatchers("/actuator/**").permitAll()
                     .requestMatchers("/login/**").permitAll()
                     .requestMatchers("/hmac/**").permitAll()
-                    .requestMatchers(HttpMethod.GET, "/cotilla/v1/*").hasRole("ADMINISTRADORES")
+                    .requestMatchers(HttpMethod.GET, "/cotilla/v1/**").hasRole("ADMINISTRADORES")
                     .anyRequest().permitAll()
                  )
                 .build();
