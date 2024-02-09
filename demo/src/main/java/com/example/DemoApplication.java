@@ -13,10 +13,13 @@ import org.springframework.web.client.RestTemplate;
 import feign.Capability;
 import feign.micrometer.MicrometerCapability;
 import io.micrometer.core.instrument.MeterRegistry;
+import io.swagger.v3.oas.annotations.enums.SecuritySchemeType;
+import io.swagger.v3.oas.annotations.security.SecurityScheme;
 
 @SpringBootApplication
 @EnableDiscoveryClient
 @EnableFeignClients("com.example.application.proxies")
+@SecurityScheme(name = "bearerAuth", type = SecuritySchemeType.HTTP, scheme = "bearer", bearerFormat = "JWT")
 public class DemoApplication implements CommandLineRunner {
 
 	public static void main(String[] args) {

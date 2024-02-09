@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -17,6 +18,7 @@ import lombok.Value;
 
 @RestController
 @RequestMapping("/cotilla/v1")
+@SecurityRequirement(name = "bearerAuth")
 public class CotillaResource {
 
 	@GetMapping(path = "/primero/{id}")

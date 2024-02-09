@@ -17,6 +17,7 @@ import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -231,7 +232,7 @@ public class RemotosResource {
 //	Tracer tracer;
 	
 //	@PreAuthorize("hasRole('ADMINISTRADORES')")
-//	@PreAuthorize("authenticated")
+	@PreAuthorize("authenticated")
 	@SecurityRequirement(name = "bearerAuth")
 	@PostMapping(path = "/pelis/{id}/like")
 //	@Observed(name = "enviar.megusta", contextualName = "enviar-megusta", lowCardinalityKeyValues = {"megustaType", "pelicula"})
