@@ -3,6 +3,7 @@ package com.example;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.apache.kafka.clients.admin.NewTopic;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -34,6 +35,11 @@ public class AsyncKafkaConsumerApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(AsyncKafkaConsumerApplication.class, args);
 	}
+
+    @Bean
+    NewTopic topicLocation() {
+        return new NewTopic("sensores", 2, (short) 1);
+    }
 
 	Map<String, Integer> contadores = new HashMap<>();
 

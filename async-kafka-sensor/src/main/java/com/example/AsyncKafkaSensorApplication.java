@@ -25,6 +25,7 @@ import org.springframework.kafka.support.SendResult;
 import org.springframework.kafka.support.serializer.JsonSerializer;
 import org.springframework.util.concurrent.ListenableFutureCallback;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -41,7 +42,7 @@ public class AsyncKafkaSensorApplication implements CommandLineRunner {
 
     @Bean
     NewTopic topicLocation() {
-        return new NewTopic("sensores", 1, (short) 1);
+        return new NewTopic("sensores", 2, (short) 1);
     }
 
 	@Value("${spring.kafka.bootstrap-servers}")
@@ -79,6 +80,7 @@ public class AsyncKafkaSensorApplication implements CommandLineRunner {
 		private static final long serialVersionUID = 1L;
 		private String msg;
 		private String origen;
+		@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss")
 		private Date enviado = new Date();
 
 		public MessageDTO() {
